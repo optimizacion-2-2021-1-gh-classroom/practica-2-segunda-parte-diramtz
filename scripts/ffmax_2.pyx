@@ -222,7 +222,7 @@ cdef class create_flow_network:
                       network occurs.
             (float): maximum flow through the network
         """
-        cdef double s, flow
+        cdef double s=0, flow
         cdef list path
         
         source = self.get_source()

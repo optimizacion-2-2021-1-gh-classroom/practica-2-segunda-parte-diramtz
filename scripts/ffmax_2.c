@@ -4811,6 +4811,15 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     __Pyx_GOTREF(__pyx_cur_scope);
   }
 
+  /* "ffmax_2.pyx":225
+ *             (float): maximum flow through the network
+ *         """
+ *         cdef double s=0, flow             # <<<<<<<<<<<<<<
+ *         cdef list path
+ * 
+ */
+  __pyx_v_s = 0.0;
+
   /* "ffmax_2.pyx":228
  *         cdef list path
  * 
