@@ -56,7 +56,7 @@ cdef class create_flow_network:
         Finds the source vertex in the list of vertices in the network.
         """
         for vertex in self.vertices:
-            if vertex.source == True:
+            if (vertex.source):
                 return vertex
 
         return None
@@ -66,7 +66,7 @@ cdef class create_flow_network:
         Finds the sink vertex in the list of vertices in the flow network.
         """
         for vertex in self.vertices:
-            if vertex.sink == True:
+            if (vertex.sink):
                 return vertex
 
         return None
@@ -126,17 +126,17 @@ cdef class create_flow_network:
         Returns:
             (string): error message when error arises
         """
-        if source == True and sink == True:
+        if (source and sink):
             return "El nodo {} no puede ser origen y destino".format(name)
 
         if self.vertex_in_network(name):
             return "Nodo duplicado"
 
-        if source == True:
+        if source:
             if self.get_source() != None:
                 return "Ya existe nodo origen"
 
-        if sink == True:
+        if sink:
             if self.get_sink() != None:
                 return "Ya existe nodo destino"
 
@@ -161,16 +161,18 @@ cdef class create_flow_network:
         #cdef int result
         #cdef const char* msg
         
-        if self.vertex_in_network(start) == False:
-            #msg = "Nodo origen ya ha sido agregado. \n El cálculo de flujo máximo continúa con el primer valor asignado al nodo orígen."
-            #result = printf("%s", msg)
+        #if self.vertex_in_network(start) == False:
+        if (self.vertex_in_network(start)):
+            pass
+        else:
             print("Nodo origen ya ha sido agregado. \n El cálculo de flujo máximo continúa con el primer valor asignado al nodo orígen.")
-            #printf("Nodo origen ya ha sido agregado. \n El cálculo de flujo máximo continúa con el primer valor asignado al nodo orígen.")
 
-        elif self.vertex_in_network(end) == False:
+        if (self.vertex_in_network(end)):
+            pass
+        else:
             print("Nodo destino ya ha sido agregado. \n El cálculo del flujo máximo continúa con el primer valor asignado al nodo destino.")
         
-        elif start == end:
+        if start == end:
             print("No se pueden tener bucles. \n El cálculo de flujo máximo continuará sin tomar en cuenta este arco.")
           
         else:

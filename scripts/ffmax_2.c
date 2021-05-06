@@ -867,7 +867,7 @@ struct __pyx_obj_7ffmax_2_create_flow_network {
 };
 
 
-/* "ffmax_2.pyx":211
+/* "ffmax_2.pyx":213
  *                     return result
  * 
  *     def MaxFlow(self):             # <<<<<<<<<<<<<<
@@ -880,7 +880,7 @@ struct __pyx_obj_7ffmax_2___pyx_scope_struct__MaxFlow {
 };
 
 
-/* "ffmax_2.pyx":234
+/* "ffmax_2.pyx":236
  *         path = self.get_path(source.name, sink.name, [])
  *         while path != None:
  *             flow = min(edge[1] for edge in path)             # <<<<<<<<<<<<<<
@@ -2625,8 +2625,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_2get_source(struct __py
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  int __pyx_t_5;
+  int __pyx_t_4;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2636,7 +2635,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_2get_source(struct __py
  *         Finds the source vertex in the list of vertices in the network.
  *         """
  *         for vertex in self.vertices:             # <<<<<<<<<<<<<<
- *             if vertex.source == True:
+ *             if (vertex.source):
  *                 return vertex
  */
   if (unlikely(__pyx_v_self->vertices == Py_None)) {
@@ -2658,21 +2657,19 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_2get_source(struct __py
     /* "ffmax_2.pyx":59
  *         """
  *         for vertex in self.vertices:
- *             if vertex.source == True:             # <<<<<<<<<<<<<<
+ *             if (vertex.source):             # <<<<<<<<<<<<<<
  *                 return vertex
  * 
  */
     __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertex, __pyx_n_s_source); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 59, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__pyx_t_5) {
+    if (__pyx_t_4) {
 
       /* "ffmax_2.pyx":60
  *         for vertex in self.vertices:
- *             if vertex.source == True:
+ *             if (vertex.source):
  *                 return vertex             # <<<<<<<<<<<<<<
  * 
  *         return None
@@ -2686,7 +2683,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_2get_source(struct __py
       /* "ffmax_2.pyx":59
  *         """
  *         for vertex in self.vertices:
- *             if vertex.source == True:             # <<<<<<<<<<<<<<
+ *             if (vertex.source):             # <<<<<<<<<<<<<<
  *                 return vertex
  * 
  */
@@ -2696,7 +2693,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_2get_source(struct __py
  *         Finds the source vertex in the list of vertices in the network.
  *         """
  *         for vertex in self.vertices:             # <<<<<<<<<<<<<<
- *             if vertex.source == True:
+ *             if (vertex.source):
  *                 return vertex
  */
   }
@@ -2725,7 +2722,6 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_2get_source(struct __py
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("ffmax_2.create_flow_network.get_source", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2764,8 +2760,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_4get_sink(struct __pyx_
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  int __pyx_t_5;
+  int __pyx_t_4;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2775,7 +2770,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_4get_sink(struct __pyx_
  *         Finds the sink vertex in the list of vertices in the flow network.
  *         """
  *         for vertex in self.vertices:             # <<<<<<<<<<<<<<
- *             if vertex.sink == True:
+ *             if (vertex.sink):
  *                 return vertex
  */
   if (unlikely(__pyx_v_self->vertices == Py_None)) {
@@ -2797,21 +2792,19 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_4get_sink(struct __pyx_
     /* "ffmax_2.pyx":69
  *         """
  *         for vertex in self.vertices:
- *             if vertex.sink == True:             # <<<<<<<<<<<<<<
+ *             if (vertex.sink):             # <<<<<<<<<<<<<<
  *                 return vertex
  * 
  */
     __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertex, __pyx_n_s_sink); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__pyx_t_5) {
+    if (__pyx_t_4) {
 
       /* "ffmax_2.pyx":70
  *         for vertex in self.vertices:
- *             if vertex.sink == True:
+ *             if (vertex.sink):
  *                 return vertex             # <<<<<<<<<<<<<<
  * 
  *         return None
@@ -2825,7 +2818,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_4get_sink(struct __pyx_
       /* "ffmax_2.pyx":69
  *         """
  *         for vertex in self.vertices:
- *             if vertex.sink == True:             # <<<<<<<<<<<<<<
+ *             if (vertex.sink):             # <<<<<<<<<<<<<<
  *                 return vertex
  * 
  */
@@ -2835,7 +2828,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_4get_sink(struct __pyx_
  *         Finds the sink vertex in the list of vertices in the flow network.
  *         """
  *         for vertex in self.vertices:             # <<<<<<<<<<<<<<
- *             if vertex.sink == True:
+ *             if (vertex.sink):
  *                 return vertex
  */
   }
@@ -2864,7 +2857,6 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_4get_sink(struct __pyx_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("ffmax_2.create_flow_network.get_sink", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3483,24 +3475,24 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
   /* "ffmax_2.pyx":129
  *             (string): error message when error arises
  *         """
- *         if source == True and sink == True:             # <<<<<<<<<<<<<<
+ *         if (source and sink):             # <<<<<<<<<<<<<<
  *             return "El nodo {} no puede ser origen y destino".format(name)
  * 
  */
-  __pyx_t_2 = ((__pyx_v_source == 1) != 0);
+  __pyx_t_2 = (__pyx_v_source != 0);
   if (__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_2 = ((__pyx_v_sink == 1) != 0);
+  __pyx_t_2 = (__pyx_v_sink != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
     /* "ffmax_2.pyx":130
  *         """
- *         if source == True and sink == True:
+ *         if (source and sink):
  *             return "El nodo {} no puede ser origen y destino".format(name)             # <<<<<<<<<<<<<<
  * 
  *         if self.vertex_in_network(name):
@@ -3530,7 +3522,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
     /* "ffmax_2.pyx":129
  *             (string): error message when error arises
  *         """
- *         if source == True and sink == True:             # <<<<<<<<<<<<<<
+ *         if (source and sink):             # <<<<<<<<<<<<<<
  *             return "El nodo {} no puede ser origen y destino".format(name)
  * 
  */
@@ -3569,7 +3561,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
  *         if self.vertex_in_network(name):
  *             return "Nodo duplicado"             # <<<<<<<<<<<<<<
  * 
- *         if source == True:
+ *         if source:
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_INCREF(__pyx_kp_u_Nodo_duplicado);
@@ -3588,16 +3580,16 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
   /* "ffmax_2.pyx":135
  *             return "Nodo duplicado"
  * 
- *         if source == True:             # <<<<<<<<<<<<<<
+ *         if source:             # <<<<<<<<<<<<<<
  *             if self.get_source() != None:
  *                 return "Ya existe nodo origen"
  */
-  __pyx_t_1 = ((__pyx_v_source == 1) != 0);
+  __pyx_t_1 = (__pyx_v_source != 0);
   if (__pyx_t_1) {
 
     /* "ffmax_2.pyx":136
  * 
- *         if source == True:
+ *         if source:
  *             if self.get_source() != None:             # <<<<<<<<<<<<<<
  *                 return "Ya existe nodo origen"
  * 
@@ -3626,11 +3618,11 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
     if (__pyx_t_1) {
 
       /* "ffmax_2.pyx":137
- *         if source == True:
+ *         if source:
  *             if self.get_source() != None:
  *                 return "Ya existe nodo origen"             # <<<<<<<<<<<<<<
  * 
- *         if sink == True:
+ *         if sink:
  */
       __Pyx_XDECREF(__pyx_r);
       __Pyx_INCREF(__pyx_kp_u_Ya_existe_nodo_origen);
@@ -3639,7 +3631,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
 
       /* "ffmax_2.pyx":136
  * 
- *         if source == True:
+ *         if source:
  *             if self.get_source() != None:             # <<<<<<<<<<<<<<
  *                 return "Ya existe nodo origen"
  * 
@@ -3649,7 +3641,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
     /* "ffmax_2.pyx":135
  *             return "Nodo duplicado"
  * 
- *         if source == True:             # <<<<<<<<<<<<<<
+ *         if source:             # <<<<<<<<<<<<<<
  *             if self.get_source() != None:
  *                 return "Ya existe nodo origen"
  */
@@ -3658,16 +3650,16 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
   /* "ffmax_2.pyx":139
  *                 return "Ya existe nodo origen"
  * 
- *         if sink == True:             # <<<<<<<<<<<<<<
+ *         if sink:             # <<<<<<<<<<<<<<
  *             if self.get_sink() != None:
  *                 return "Ya existe nodo destino"
  */
-  __pyx_t_1 = ((__pyx_v_sink == 1) != 0);
+  __pyx_t_1 = (__pyx_v_sink != 0);
   if (__pyx_t_1) {
 
     /* "ffmax_2.pyx":140
  * 
- *         if sink == True:
+ *         if sink:
  *             if self.get_sink() != None:             # <<<<<<<<<<<<<<
  *                 return "Ya existe nodo destino"
  * 
@@ -3696,7 +3688,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
     if (__pyx_t_1) {
 
       /* "ffmax_2.pyx":141
- *         if sink == True:
+ *         if sink:
  *             if self.get_sink() != None:
  *                 return "Ya existe nodo destino"             # <<<<<<<<<<<<<<
  * 
@@ -3709,7 +3701,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
 
       /* "ffmax_2.pyx":140
  * 
- *         if sink == True:
+ *         if sink:
  *             if self.get_sink() != None:             # <<<<<<<<<<<<<<
  *                 return "Ya existe nodo destino"
  * 
@@ -3719,7 +3711,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_12create_vertex(struct 
     /* "ffmax_2.pyx":139
  *                 return "Ya existe nodo origen"
  * 
- *         if sink == True:             # <<<<<<<<<<<<<<
+ *         if sink:             # <<<<<<<<<<<<<<
  *             if self.get_sink() != None:
  *                 return "Ya existe nodo destino"
  */
@@ -3909,14 +3901,14 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("create_edge", 0);
 
-  /* "ffmax_2.pyx":164
- *         #cdef const char* msg
+  /* "ffmax_2.pyx":165
  * 
- *         if self.vertex_in_network(start) == False:             # <<<<<<<<<<<<<<
- *             #msg = "Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen."
- *             #result = printf("%s", msg)
+ *         #if self.vertex_in_network(start) == False:
+ *         if (self.vertex_in_network(start)):             # <<<<<<<<<<<<<<
+ *             pass
+ *         else:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_vertex_in_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_vertex_in_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3930,121 +3922,107 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_start) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_start);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, Py_False, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 164, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_4) {
-
-    /* "ffmax_2.pyx":167
- *             #msg = "Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen."
- *             #result = printf("%s", msg)
- *             print("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")             # <<<<<<<<<<<<<<
- *             #printf("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")
- * 
- */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-    /* "ffmax_2.pyx":164
- *         #cdef const char* msg
- * 
- *         if self.vertex_in_network(start) == False:             # <<<<<<<<<<<<<<
- *             #msg = "Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen."
- *             #result = printf("%s", msg)
- */
     goto __pyx_L3;
   }
 
-  /* "ffmax_2.pyx":170
- *             #printf("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")
+  /* "ffmax_2.pyx":168
+ *             pass
+ *         else:
+ *             print("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")             # <<<<<<<<<<<<<<
  * 
- *         elif self.vertex_in_network(end) == False:             # <<<<<<<<<<<<<<
- *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")
- * 
+ *         if (self.vertex_in_network(end)):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_vertex_in_network); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  /*else*/ {
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  }
+  __pyx_L3:;
+
+  /* "ffmax_2.pyx":170
+ *             print("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")
+ * 
+ *         if (self.vertex_in_network(end)):             # <<<<<<<<<<<<<<
+ *             pass
+ *         else:
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_vertex_in_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
     if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_end) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_end);
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_end) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_end);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, Py_False, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
-
-    /* "ffmax_2.pyx":171
- * 
- *         elif self.vertex_in_network(end) == False:
- *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")             # <<<<<<<<<<<<<<
- * 
- *         elif start == end:
- */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "ffmax_2.pyx":170
- *             #printf("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")
- * 
- *         elif self.vertex_in_network(end) == False:             # <<<<<<<<<<<<<<
- *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")
- * 
- */
-    goto __pyx_L3;
+    goto __pyx_L4;
   }
 
   /* "ffmax_2.pyx":173
+ *             pass
+ *         else:
+ *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")             # <<<<<<<<<<<<<<
+ * 
+ *         if start == end:
+ */
+  /*else*/ {
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  }
+  __pyx_L4:;
+
+  /* "ffmax_2.pyx":175
  *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")
  * 
- *         elif start == end:             # <<<<<<<<<<<<<<
+ *         if start == end:             # <<<<<<<<<<<<<<
  *             print("No se pueden tener bucles. \n El clculo de flujo mximo continuar sin tomar en cuenta este arco.")
  * 
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_v_end, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_v_end, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "ffmax_2.pyx":174
+    /* "ffmax_2.pyx":176
  * 
- *         elif start == end:
+ *         if start == end:
  *             print("No se pueden tener bucles. \n El clculo de flujo mximo continuar sin tomar en cuenta este arco.")             # <<<<<<<<<<<<<<
  * 
  *         else:
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "ffmax_2.pyx":173
+    /* "ffmax_2.pyx":175
  *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")
  * 
- *         elif start == end:             # <<<<<<<<<<<<<<
+ *         if start == end:             # <<<<<<<<<<<<<<
  *             print("No se pueden tener bucles. \n El clculo de flujo mximo continuar sin tomar en cuenta este arco.")
  * 
  */
-    goto __pyx_L3;
+    goto __pyx_L5;
   }
 
-  /* "ffmax_2.pyx":177
+  /* "ffmax_2.pyx":179
  * 
  *         else:
  *             newEdge = edge(start, end, capacity)             # <<<<<<<<<<<<<<
@@ -4052,9 +4030,9 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
  *             newEdge.returnEdge = returnEdge
  */
   /*else*/ {
-    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_capacity); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_capacity); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_start);
     __Pyx_GIVEREF(__pyx_v_start);
@@ -4065,20 +4043,20 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_t_1);
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7ffmax_2_edge), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7ffmax_2_edge), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_newEdge = ((struct __pyx_obj_7ffmax_2_edge *)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "ffmax_2.pyx":178
+    /* "ffmax_2.pyx":180
  *         else:
  *             newEdge = edge(start, end, capacity)
  *             returnEdge = edge(end, start, 0)             # <<<<<<<<<<<<<<
  *             newEdge.returnEdge = returnEdge
  *             returnEdge.returnEdge = newEdge
  */
-    __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_v_end);
     __Pyx_GIVEREF(__pyx_v_end);
@@ -4089,38 +4067,38 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_int_0);
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7ffmax_2_edge), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7ffmax_2_edge), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_returnEdge = ((struct __pyx_obj_7ffmax_2_edge *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "ffmax_2.pyx":179
+    /* "ffmax_2.pyx":181
  *             newEdge = edge(start, end, capacity)
  *             returnEdge = edge(end, start, 0)
  *             newEdge.returnEdge = returnEdge             # <<<<<<<<<<<<<<
  *             returnEdge.returnEdge = newEdge
  *             vertex = self.get_vertex(start)
  */
-    if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_newEdge), __pyx_n_s_returnEdge, ((PyObject *)__pyx_v_returnEdge)) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_newEdge), __pyx_n_s_returnEdge, ((PyObject *)__pyx_v_returnEdge)) < 0) __PYX_ERR(0, 181, __pyx_L1_error)
 
-    /* "ffmax_2.pyx":180
+    /* "ffmax_2.pyx":182
  *             returnEdge = edge(end, start, 0)
  *             newEdge.returnEdge = returnEdge
  *             returnEdge.returnEdge = newEdge             # <<<<<<<<<<<<<<
  *             vertex = self.get_vertex(start)
  *             self.network[vertex.name].append(newEdge)
  */
-    if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_returnEdge), __pyx_n_s_returnEdge, ((PyObject *)__pyx_v_newEdge)) < 0) __PYX_ERR(0, 180, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_returnEdge), __pyx_n_s_returnEdge, ((PyObject *)__pyx_v_newEdge)) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
 
-    /* "ffmax_2.pyx":181
+    /* "ffmax_2.pyx":183
  *             newEdge.returnEdge = returnEdge
  *             returnEdge.returnEdge = newEdge
  *             vertex = self.get_vertex(start)             # <<<<<<<<<<<<<<
  *             self.network[vertex.name].append(newEdge)
  *             returnVertex = self.get_vertex(end)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_vertex); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_vertex); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -4134,38 +4112,38 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
     }
     __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_start) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_start);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_vertex = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "ffmax_2.pyx":182
+    /* "ffmax_2.pyx":184
  *             returnEdge.returnEdge = newEdge
  *             vertex = self.get_vertex(start)
  *             self.network[vertex.name].append(newEdge)             # <<<<<<<<<<<<<<
  *             returnVertex = self.get_vertex(end)
  *             self.network[returnVertex.name].append(returnEdge)
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertex, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertex, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Append(__pyx_t_3, ((PyObject *)__pyx_v_newEdge)); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Append(__pyx_t_3, ((PyObject *)__pyx_v_newEdge)); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "ffmax_2.pyx":183
+    /* "ffmax_2.pyx":185
  *             vertex = self.get_vertex(start)
  *             self.network[vertex.name].append(newEdge)
  *             returnVertex = self.get_vertex(end)             # <<<<<<<<<<<<<<
  *             self.network[returnVertex.name].append(returnEdge)
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_vertex); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 183, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_vertex); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -4179,31 +4157,31 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
     }
     __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_2, __pyx_v_end) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_end);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 183, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_returnVertex = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "ffmax_2.pyx":184
+    /* "ffmax_2.pyx":186
  *             self.network[vertex.name].append(newEdge)
  *             returnVertex = self.get_vertex(end)
  *             self.network[returnVertex.name].append(returnEdge)             # <<<<<<<<<<<<<<
  * 
  *     def get_path(self, start, end, path):
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_returnVertex, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_returnVertex, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Append(__pyx_t_2, ((PyObject *)__pyx_v_returnEdge)); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Append(__pyx_t_2, ((PyObject *)__pyx_v_returnEdge)); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  __pyx_L3:;
+  __pyx_L5:;
 
   /* "ffmax_2.pyx":147
  *         self.network[newVertex.name] = []
@@ -4232,7 +4210,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_14create_edge(struct __
   return __pyx_r;
 }
 
-/* "ffmax_2.pyx":186
+/* "ffmax_2.pyx":188
  *             self.network[returnVertex.name].append(returnEdge)
  * 
  *     def get_path(self, start, end, path):             # <<<<<<<<<<<<<<
@@ -4278,17 +4256,17 @@ static PyObject *__pyx_pw_7ffmax_2_19create_flow_network_17get_path(PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_end)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_path", 1, 3, 3, 1); __PYX_ERR(0, 186, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_path", 1, 3, 3, 1); __PYX_ERR(0, 188, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_path)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_path", 1, 3, 3, 2); __PYX_ERR(0, 186, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_path", 1, 3, 3, 2); __PYX_ERR(0, 188, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_path") < 0)) __PYX_ERR(0, 186, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_path") < 0)) __PYX_ERR(0, 188, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4303,7 +4281,7 @@ static PyObject *__pyx_pw_7ffmax_2_19create_flow_network_17get_path(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_path", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 186, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_path", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 188, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ffmax_2.create_flow_network.get_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4340,19 +4318,19 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_path", 0);
 
-  /* "ffmax_2.pyx":201
+  /* "ffmax_2.pyx":203
  *         """
  * 
  *         if start == end:             # <<<<<<<<<<<<<<
  *             return path
  * 
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_v_end, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 201, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_v_end, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "ffmax_2.pyx":202
+    /* "ffmax_2.pyx":204
  * 
  *         if start == end:
  *             return path             # <<<<<<<<<<<<<<
@@ -4364,7 +4342,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
     __pyx_r = __pyx_v_path;
     goto __pyx_L0;
 
-    /* "ffmax_2.pyx":201
+    /* "ffmax_2.pyx":203
  *         """
  * 
  *         if start == end:             # <<<<<<<<<<<<<<
@@ -4373,25 +4351,25 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
  */
   }
 
-  /* "ffmax_2.pyx":204
+  /* "ffmax_2.pyx":206
  *             return path
  * 
  *         for edge in self.network[start]:             # <<<<<<<<<<<<<<
  *             residualCapacity = edge.capacity - edge.flow
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_1 = __pyx_t_3; __Pyx_INCREF(__pyx_t_1); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 206, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -4399,17 +4377,17 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 206, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 206, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -4419,7 +4397,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 204, __pyx_L1_error)
+          else __PYX_ERR(0, 206, __pyx_L1_error)
         }
         break;
       }
@@ -4428,40 +4406,40 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
     __Pyx_XDECREF_SET(__pyx_v_edge, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "ffmax_2.pyx":205
+    /* "ffmax_2.pyx":207
  * 
  *         for edge in self.network[start]:
  *             residualCapacity = edge.capacity - edge.flow             # <<<<<<<<<<<<<<
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:
  *                 result = self.get_path(edge.end, end, path + [(edge, residualCapacity)])
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_capacity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_capacity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_flow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_flow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = PyNumber_Subtract(__pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Subtract(__pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF_SET(__pyx_v_residualCapacity, __pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "ffmax_2.pyx":206
+    /* "ffmax_2.pyx":208
  *         for edge in self.network[start]:
  *             residualCapacity = edge.capacity - edge.flow
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:             # <<<<<<<<<<<<<<
  *                 result = self.get_path(edge.end, end, path + [(edge, residualCapacity)])
  *                 if result != None:
  */
-    __pyx_t_7 = PyObject_RichCompare(__pyx_v_residualCapacity, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 206, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_7 = PyObject_RichCompare(__pyx_v_residualCapacity, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 208, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     if (__pyx_t_8) {
     } else {
       __pyx_t_2 = __pyx_t_8;
       goto __pyx_L7_bool_binop_done;
     }
-    __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 208, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_INCREF(__pyx_v_edge);
     __Pyx_GIVEREF(__pyx_v_edge);
@@ -4469,25 +4447,25 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
     __Pyx_INCREF(__pyx_v_residualCapacity);
     __Pyx_GIVEREF(__pyx_v_residualCapacity);
     PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_v_residualCapacity);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_7, __pyx_v_path, Py_NE)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_7, __pyx_v_path, Py_NE)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_9 = (__pyx_t_8 != 0);
     __pyx_t_2 = __pyx_t_9;
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "ffmax_2.pyx":207
+      /* "ffmax_2.pyx":209
  *             residualCapacity = edge.capacity - edge.flow
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:
  *                 result = self.get_path(edge.end, end, path + [(edge, residualCapacity)])             # <<<<<<<<<<<<<<
  *                 if result != None:
  *                     return result
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 209, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 209, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 209, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_INCREF(__pyx_v_edge);
       __Pyx_GIVEREF(__pyx_v_edge);
@@ -4495,12 +4473,12 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
       __Pyx_INCREF(__pyx_v_residualCapacity);
       __Pyx_GIVEREF(__pyx_v_residualCapacity);
       PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_v_residualCapacity);
-      __pyx_t_11 = PyList_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __pyx_t_11 = PyList_New(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 209, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_GIVEREF(__pyx_t_10);
       PyList_SET_ITEM(__pyx_t_11, 0, __pyx_t_10);
       __pyx_t_10 = 0;
-      __pyx_t_10 = PyNumber_Add(__pyx_v_path, __pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __pyx_t_10 = PyNumber_Add(__pyx_v_path, __pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 209, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_t_11 = NULL;
@@ -4518,7 +4496,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[4] = {__pyx_t_11, __pyx_t_3, __pyx_v_end, __pyx_t_10};
-        __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_12, 3+__pyx_t_12); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 207, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_12, 3+__pyx_t_12); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 209, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4528,7 +4506,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[4] = {__pyx_t_11, __pyx_t_3, __pyx_v_end, __pyx_t_10};
-        __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_12, 3+__pyx_t_12); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 207, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_12, 3+__pyx_t_12); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 209, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4536,7 +4514,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
       } else
       #endif
       {
-        __pyx_t_13 = PyTuple_New(3+__pyx_t_12); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 207, __pyx_L1_error)
+        __pyx_t_13 = PyTuple_New(3+__pyx_t_12); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 209, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         if (__pyx_t_11) {
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -4550,7 +4528,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
         PyTuple_SET_ITEM(__pyx_t_13, 2+__pyx_t_12, __pyx_t_10);
         __pyx_t_3 = 0;
         __pyx_t_10 = 0;
-        __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_13, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 207, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_13, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 209, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       }
@@ -4558,19 +4536,19 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
       __Pyx_XDECREF_SET(__pyx_v_result, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "ffmax_2.pyx":208
+      /* "ffmax_2.pyx":210
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:
  *                 result = self.get_path(edge.end, end, path + [(edge, residualCapacity)])
  *                 if result != None:             # <<<<<<<<<<<<<<
  *                     return result
  * 
  */
-      __pyx_t_7 = PyObject_RichCompare(__pyx_v_result, Py_None, Py_NE); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 208, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
+      __pyx_t_7 = PyObject_RichCompare(__pyx_v_result, Py_None, Py_NE); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 210, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 210, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       if (__pyx_t_2) {
 
-        /* "ffmax_2.pyx":209
+        /* "ffmax_2.pyx":211
  *                 result = self.get_path(edge.end, end, path + [(edge, residualCapacity)])
  *                 if result != None:
  *                     return result             # <<<<<<<<<<<<<<
@@ -4583,7 +4561,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         goto __pyx_L0;
 
-        /* "ffmax_2.pyx":208
+        /* "ffmax_2.pyx":210
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:
  *                 result = self.get_path(edge.end, end, path + [(edge, residualCapacity)])
  *                 if result != None:             # <<<<<<<<<<<<<<
@@ -4592,7 +4570,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
  */
       }
 
-      /* "ffmax_2.pyx":206
+      /* "ffmax_2.pyx":208
  *         for edge in self.network[start]:
  *             residualCapacity = edge.capacity - edge.flow
  *             if residualCapacity > 0 and not (edge, residualCapacity) in path:             # <<<<<<<<<<<<<<
@@ -4601,7 +4579,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
  */
     }
 
-    /* "ffmax_2.pyx":204
+    /* "ffmax_2.pyx":206
  *             return path
  * 
  *         for edge in self.network[start]:             # <<<<<<<<<<<<<<
@@ -4611,7 +4589,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ffmax_2.pyx":186
+  /* "ffmax_2.pyx":188
  *             self.network[returnVertex.name].append(returnEdge)
  * 
  *     def get_path(self, start, end, path):             # <<<<<<<<<<<<<<
@@ -4641,7 +4619,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_16get_path(struct __pyx
   return __pyx_r;
 }
 
-/* "ffmax_2.pyx":211
+/* "ffmax_2.pyx":213
  *                     return result
  * 
  *     def MaxFlow(self):             # <<<<<<<<<<<<<<
@@ -4664,7 +4642,7 @@ static PyObject *__pyx_pw_7ffmax_2_19create_flow_network_19MaxFlow(PyObject *__p
 }
 static PyObject *__pyx_gb_7ffmax_2_19create_flow_network_7MaxFlow_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "ffmax_2.pyx":234
+/* "ffmax_2.pyx":236
  *         path = self.get_path(source.name, sink.name, [])
  *         while path != None:
  *             flow = min(edge[1] for edge in path)             # <<<<<<<<<<<<<<
@@ -4684,7 +4662,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_7MaxFlow_genexpr(PyObje
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7ffmax_2___pyx_scope_struct_1_genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 234, __pyx_L1_error)
+    __PYX_ERR(0, 236, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -4692,7 +4670,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_7MaxFlow_genexpr(PyObje
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7ffmax_2_19create_flow_network_7MaxFlow_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_MaxFlow_locals_genexpr, __pyx_n_s_ffmax_2); if (unlikely(!gen)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7ffmax_2_19create_flow_network_7MaxFlow_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_MaxFlow_locals_genexpr, __pyx_n_s_ffmax_2); if (unlikely(!gen)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4728,26 +4706,26 @@ static PyObject *__pyx_gb_7ffmax_2_19create_flow_network_7MaxFlow_2generator(__p
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 234, __pyx_L1_error)
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_path)) { __Pyx_RaiseClosureNameError("path"); __PYX_ERR(0, 234, __pyx_L1_error) }
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_path)) { __Pyx_RaiseClosureNameError("path"); __PYX_ERR(0, 236, __pyx_L1_error) }
   if (unlikely(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_path == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 234, __pyx_L1_error)
+    __PYX_ERR(0, 236, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_cur_scope->__pyx_outer_scope->__pyx_v_path; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
   for (;;) {
     if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_edge);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_edge, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_edge, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_edge, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4765,7 +4743,7 @@ static PyObject *__pyx_gb_7ffmax_2_19create_flow_network_7MaxFlow_2generator(__p
     __pyx_cur_scope->__pyx_t_0 = 0;
     __Pyx_XGOTREF(__pyx_t_1);
     __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 234, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 236, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
@@ -4788,7 +4766,7 @@ static PyObject *__pyx_gb_7ffmax_2_19create_flow_network_7MaxFlow_2generator(__p
   return __pyx_r;
 }
 
-/* "ffmax_2.pyx":211
+/* "ffmax_2.pyx":213
  *                     return result
  * 
  *     def MaxFlow(self):             # <<<<<<<<<<<<<<
@@ -4828,19 +4806,19 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7ffmax_2___pyx_scope_struct__MaxFlow *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 211, __pyx_L1_error)
+    __PYX_ERR(0, 213, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
 
-  /* "ffmax_2.pyx":226
+  /* "ffmax_2.pyx":228
  *         cdef list path
  * 
  *         source = self.get_source()             # <<<<<<<<<<<<<<
  *         sink = self.get_sink()
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_source); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_source); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4854,20 +4832,20 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_source = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ffmax_2.pyx":227
+  /* "ffmax_2.pyx":229
  * 
  *         source = self.get_source()
  *         sink = self.get_sink()             # <<<<<<<<<<<<<<
  * 
  *         if source == None or sink == None:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_sink); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_sink); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4881,35 +4859,35 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_sink = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ffmax_2.pyx":229
+  /* "ffmax_2.pyx":231
  *         sink = self.get_sink()
  * 
  *         if source == None or sink == None:             # <<<<<<<<<<<<<<
  *             return "La red no tiene nodo origen y/o destino "
  * 
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_source, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_source, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 231, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (!__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_sink, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_sink, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 231, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "ffmax_2.pyx":230
+    /* "ffmax_2.pyx":232
  * 
  *         if source == None or sink == None:
  *             return "La red no tiene nodo origen y/o destino "             # <<<<<<<<<<<<<<
@@ -4921,7 +4899,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     __pyx_r = __pyx_kp_u_La_red_no_tiene_nodo_origen_y_o;
     goto __pyx_L0;
 
-    /* "ffmax_2.pyx":229
+    /* "ffmax_2.pyx":231
  *         sink = self.get_sink()
  * 
  *         if source == None or sink == None:             # <<<<<<<<<<<<<<
@@ -4930,20 +4908,20 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
  */
   }
 
-  /* "ffmax_2.pyx":232
+  /* "ffmax_2.pyx":234
  *             return "La red no tiene nodo origen y/o destino "
  * 
  *         path = self.get_path(source.name, sink.name, [])             # <<<<<<<<<<<<<<
  *         while path != None:
  *             flow = min(edge[1] for edge in path)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_source, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_source, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_sink, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_sink, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_8 = NULL;
   __pyx_t_9 = 0;
@@ -4960,7 +4938,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_t_3, __pyx_t_6, __pyx_t_7};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4971,7 +4949,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_t_3, __pyx_t_6, __pyx_t_7};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4980,7 +4958,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   } else
   #endif
   {
-    __pyx_t_10 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_10 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (__pyx_t_8) {
       __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4994,17 +4972,17 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     __pyx_t_3 = 0;
     __pyx_t_6 = 0;
     __pyx_t_7 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 232, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_path = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ffmax_2.pyx":233
+  /* "ffmax_2.pyx":235
  * 
  *         path = self.get_path(source.name, sink.name, [])
  *         while path != None:             # <<<<<<<<<<<<<<
@@ -5012,28 +4990,28 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
  *             for edge, res in path:
  */
   while (1) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_path, Py_None, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 233, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_path, Py_None, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (!__pyx_t_4) break;
 
-    /* "ffmax_2.pyx":234
+    /* "ffmax_2.pyx":236
  *         path = self.get_path(source.name, sink.name, [])
  *         while path != None:
  *             flow = min(edge[1] for edge in path)             # <<<<<<<<<<<<<<
  *             for edge, res in path:
  *                 edge.flow += flow
  */
-    __pyx_t_1 = __pyx_pf_7ffmax_2_19create_flow_network_7MaxFlow_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_1 = __pyx_pf_7ffmax_2_19create_flow_network_7MaxFlow_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_min, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_min, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_flow = __pyx_t_11;
 
-    /* "ffmax_2.pyx":235
+    /* "ffmax_2.pyx":237
  *         while path != None:
  *             flow = min(edge[1] for edge in path)
  *             for edge, res in path:             # <<<<<<<<<<<<<<
@@ -5042,15 +5020,15 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
  */
     if (unlikely(__pyx_cur_scope->__pyx_v_path == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 235, __pyx_L1_error)
+      __PYX_ERR(0, 237, __pyx_L1_error)
     }
     __pyx_t_2 = __pyx_cur_scope->__pyx_v_path; __Pyx_INCREF(__pyx_t_2); __pyx_t_12 = 0;
     for (;;) {
       if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_2)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_12); __Pyx_INCREF(__pyx_t_1); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 235, __pyx_L1_error)
+      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_12); __Pyx_INCREF(__pyx_t_1); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 237, __pyx_L1_error)
       #else
-      __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
@@ -5059,7 +5037,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 235, __pyx_L1_error)
+          __PYX_ERR(0, 237, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -5072,15 +5050,15 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
         __Pyx_INCREF(__pyx_t_10);
         __Pyx_INCREF(__pyx_t_7);
         #else
-        __pyx_t_10 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_10 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 237, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 237, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         #endif
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 237, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_t_13 = Py_TYPE(__pyx_t_6)->tp_iternext;
@@ -5088,7 +5066,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
         __Pyx_GOTREF(__pyx_t_10);
         index = 1; __pyx_t_7 = __pyx_t_13(__pyx_t_6); if (unlikely(!__pyx_t_7)) goto __pyx_L10_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_6), 2) < 0) __PYX_ERR(0, 235, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_6), 2) < 0) __PYX_ERR(0, 237, __pyx_L1_error)
         __pyx_t_13 = NULL;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         goto __pyx_L11_unpacking_done;
@@ -5096,7 +5074,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_13 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 235, __pyx_L1_error)
+        __PYX_ERR(0, 237, __pyx_L1_error)
         __pyx_L11_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_edge, __pyx_t_10);
@@ -5104,46 +5082,46 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
       __Pyx_XDECREF_SET(__pyx_v_res, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "ffmax_2.pyx":236
+      /* "ffmax_2.pyx":238
  *             flow = min(edge[1] for edge in path)
  *             for edge, res in path:
  *                 edge.flow += flow             # <<<<<<<<<<<<<<
  *                 edge.returnEdge.flow -= flow
  *             path = self.get_path(source.name, sink.name, [])
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_flow); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_flow); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = PyFloat_FromDouble(__pyx_v_flow); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 236, __pyx_L1_error)
+      __pyx_t_7 = PyFloat_FromDouble(__pyx_v_flow); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 238, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 236, __pyx_L1_error)
+      __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 238, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_edge, __pyx_n_s_flow, __pyx_t_10) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_edge, __pyx_n_s_flow, __pyx_t_10) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "ffmax_2.pyx":237
+      /* "ffmax_2.pyx":239
  *             for edge, res in path:
  *                 edge.flow += flow
  *                 edge.returnEdge.flow -= flow             # <<<<<<<<<<<<<<
  *             path = self.get_path(source.name, sink.name, [])
  *         for edge in self.network[source.name]:
  */
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_returnEdge); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_returnEdge); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 239, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_flow); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_flow); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_1 = PyFloat_FromDouble(__pyx_v_flow); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __pyx_t_1 = PyFloat_FromDouble(__pyx_v_flow); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = PyNumber_InPlaceSubtract(__pyx_t_7, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __pyx_t_6 = PyNumber_InPlaceSubtract(__pyx_t_7, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (__Pyx_PyObject_SetAttrStr(__pyx_t_10, __pyx_n_s_flow, __pyx_t_6) < 0) __PYX_ERR(0, 237, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_t_10, __pyx_n_s_flow, __pyx_t_6) < 0) __PYX_ERR(0, 239, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "ffmax_2.pyx":235
+      /* "ffmax_2.pyx":237
  *         while path != None:
  *             flow = min(edge[1] for edge in path)
  *             for edge, res in path:             # <<<<<<<<<<<<<<
@@ -5153,20 +5131,20 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "ffmax_2.pyx":238
+    /* "ffmax_2.pyx":240
  *                 edge.flow += flow
  *                 edge.returnEdge.flow -= flow
  *             path = self.get_path(source.name, sink.name, [])             # <<<<<<<<<<<<<<
  *         for edge in self.network[source.name]:
  *             s += edge.flow
  */
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_source, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_source, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_sink, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_sink, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_3 = NULL;
     __pyx_t_9 = 0;
@@ -5183,7 +5161,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_10)) {
       PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_t_6, __pyx_t_1, __pyx_t_7};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5194,7 +5172,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
       PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_t_6, __pyx_t_1, __pyx_t_7};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 3+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5203,7 +5181,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(3+__pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_3) {
         __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -5217,30 +5195,30 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
       __pyx_t_6 = 0;
       __pyx_t_1 = 0;
       __pyx_t_7 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 238, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_path);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_path, ((PyObject*)__pyx_t_2));
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
   }
 
-  /* "ffmax_2.pyx":239
+  /* "ffmax_2.pyx":241
  *                 edge.returnEdge.flow -= flow
  *             path = self.get_path(source.name, sink.name, [])
  *         for edge in self.network[source.name]:             # <<<<<<<<<<<<<<
  *             s += edge.flow
  *         return s
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_network); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_source, __pyx_n_s_name); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_source, __pyx_n_s_name); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -5248,9 +5226,9 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     __pyx_t_10 = __pyx_t_8; __Pyx_INCREF(__pyx_t_10); __pyx_t_12 = 0;
     __pyx_t_14 = NULL;
   } else {
-    __pyx_t_12 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_12 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_14 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_14 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 241, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   for (;;) {
@@ -5258,17 +5236,17 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
       if (likely(PyList_CheckExact(__pyx_t_10))) {
         if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_10)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
         #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_8 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 241, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         #endif
       } else {
         if (__pyx_t_12 >= PyTuple_GET_SIZE(__pyx_t_10)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
         #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_8 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 241, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         #endif
       }
@@ -5278,7 +5256,7 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 239, __pyx_L1_error)
+          else __PYX_ERR(0, 241, __pyx_L1_error)
         }
         break;
       }
@@ -5287,25 +5265,25 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
     __Pyx_XDECREF_SET(__pyx_v_edge, __pyx_t_8);
     __pyx_t_8 = 0;
 
-    /* "ffmax_2.pyx":240
+    /* "ffmax_2.pyx":242
  *             path = self.get_path(source.name, sink.name, [])
  *         for edge in self.network[source.name]:
  *             s += edge.flow             # <<<<<<<<<<<<<<
  *         return s
  */
-    __pyx_t_8 = PyFloat_FromDouble(__pyx_v_s); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_8 = PyFloat_FromDouble(__pyx_v_s); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_flow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_edge, __pyx_n_s_flow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_v_s = __pyx_t_11;
 
-    /* "ffmax_2.pyx":239
+    /* "ffmax_2.pyx":241
  *                 edge.returnEdge.flow -= flow
  *             path = self.get_path(source.name, sink.name, [])
  *         for edge in self.network[source.name]:             # <<<<<<<<<<<<<<
@@ -5315,19 +5293,19 @@ static PyObject *__pyx_pf_7ffmax_2_19create_flow_network_18MaxFlow(struct __pyx_
   }
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "ffmax_2.pyx":241
+  /* "ffmax_2.pyx":243
  *         for edge in self.network[source.name]:
  *             s += edge.flow
  *         return s             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_s); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(__pyx_v_s); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "ffmax_2.pyx":211
+  /* "ffmax_2.pyx":213
  *                     return result
  * 
  *     def MaxFlow(self):             # <<<<<<<<<<<<<<
@@ -7618,8 +7596,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 167, __pyx_L1_error)
-  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_n_s_min); if (!__pyx_builtin_min) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_n_s_min); if (!__pyx_builtin_min) __PYX_ERR(0, 236, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -7629,36 +7607,36 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "ffmax_2.pyx":167
- *             #msg = "Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen."
- *             #result = printf("%s", msg)
+  /* "ffmax_2.pyx":168
+ *             pass
+ *         else:
  *             print("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")             # <<<<<<<<<<<<<<
- *             #printf("Nodo origen ya ha sido agregado. \n El clculo de flujo mximo contina con el primer valor asignado al nodo orgen.")
  * 
+ *         if (self.vertex_in_network(end)):
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_Nodo_origen_ya_ha_sido_agregado); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_Nodo_origen_ya_ha_sido_agregado); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "ffmax_2.pyx":171
- * 
- *         elif self.vertex_in_network(end) == False:
+  /* "ffmax_2.pyx":173
+ *             pass
+ *         else:
  *             print("Nodo destino ya ha sido agregado. \n El clculo del flujo mximo contina con el primer valor asignado al nodo destino.")             # <<<<<<<<<<<<<<
  * 
- *         elif start == end:
+ *         if start == end:
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Nodo_destino_ya_ha_sido_agregado); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Nodo_destino_ya_ha_sido_agregado); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "ffmax_2.pyx":174
+  /* "ffmax_2.pyx":176
  * 
- *         elif start == end:
+ *         if start == end:
  *             print("No se pueden tener bucles. \n El clculo de flujo mximo continuar sin tomar en cuenta este arco.")             # <<<<<<<<<<<<<<
  * 
  *         else:
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_No_se_pueden_tener_bucles_El_clc); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_No_se_pueden_tener_bucles_El_clc); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
@@ -7766,7 +7744,7 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_create_flow_network, (PyObject *)&__pyx_type_7ffmax_2_create_flow_network) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7ffmax_2_create_flow_network) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __pyx_ptype_7ffmax_2_create_flow_network = &__pyx_type_7ffmax_2_create_flow_network;
-  if (PyType_Ready(&__pyx_type_7ffmax_2___pyx_scope_struct__MaxFlow) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7ffmax_2___pyx_scope_struct__MaxFlow) < 0) __PYX_ERR(0, 213, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7ffmax_2___pyx_scope_struct__MaxFlow.tp_print = 0;
   #endif
@@ -7774,7 +7752,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_7ffmax_2___pyx_scope_struct__MaxFlow.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_7ffmax_2___pyx_scope_struct__MaxFlow = &__pyx_type_7ffmax_2___pyx_scope_struct__MaxFlow;
-  if (PyType_Ready(&__pyx_type_7ffmax_2___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(0, 234, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7ffmax_2___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7ffmax_2___pyx_scope_struct_1_genexpr.tp_print = 0;
   #endif
