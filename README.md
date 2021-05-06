@@ -24,5 +24,7 @@ Nuestra nueva documentación la encuentras [aquí](https://optimizacion-2-2021-1
 
 **Referencias**
 [Práctica 1 primera parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-primera-parte-diramtz)
+
 [Práctica 1 segunda parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-diramtz)
+
 [Práctica 2 primera parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-2-primera-parte-diramtz)
