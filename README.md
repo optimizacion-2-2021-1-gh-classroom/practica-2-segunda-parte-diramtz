@@ -6,9 +6,9 @@
 | Integrante | User | Tarea |
 |---------------|-------|---------|
 | Ana | @AnaTorresR |Perfilamiento|
-| Iván | @IvanSalgadoVel |Perfilamiento & Project Manager|
+| Iván | @IvanSalgadoVel |Perfilamiento|
 | Dira | @diramtz |Re-implementación|
-| León| @lgarayva| Re-implementación|
+| León| @lgarayva| Re-implementación & Project Manager|
 
 
 El objetivo de esta segunda parte es reimplementar los métodos de nuestro paquete `ffmaxflow` para hacerlo más eficiente en algún recurso: uso de procesador o
