@@ -7,8 +7,6 @@ cdef class vertex:
         source (bool): whether the vertex is a source vertex or not
         sink (bool): whether the vertex is a sink vertex or not
     """
-    cdef bool_t source, sink
-    cdef str name
     
     def __init__(self, name, bool_t source=False, bool_t sink=False):
         self.name = name
@@ -35,7 +33,7 @@ cdef class edge:
         self.flow = 0
         self.returnEdge = None
 
-class create_flow_network:
+cdef class create_flow_network:
     """
     A flow network to which we want to find the maximum flow posible going
     from one vertex to another.
@@ -44,6 +42,9 @@ class create_flow_network:
        network (dictionary): maps every vertex's name to all of the edges
                              coming out of the said vertex
     """
+    
+    cdef public list vertices
+    
     def __init__(self):
         self.vertices = []
         self.network = {}
