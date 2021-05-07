@@ -19,7 +19,7 @@ Para hacer más eficiente los métodos de nuestro paquete, realizaremos primero 
 
 Recrea nuestros códigos y notebooks dando click en este botón de Binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-2-segunda-parte-diramtz/main/?urlpath=lab)
 
-Nuestra nueva documentación la encuentras [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-diramtz/)
+Nueva [documentación](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-2-segunda-parte-diramtz/)
 
 
 **Referencias**
