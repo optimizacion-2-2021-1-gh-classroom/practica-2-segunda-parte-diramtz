@@ -1,5 +1,4 @@
-from libcpp cimport bool as bool_t
-cdef class vertex:
+class vertex:
     """
     A vertex in a network.
     Attributes:
@@ -7,13 +6,13 @@ cdef class vertex:
         source (bool): whether the vertex is a source vertex or not
         sink (bool): whether the vertex is a sink vertex or not
     """
-    
-    def __init__(self, name, bool_t source=False, bool_t sink=False):
+
+    def __init__(self, name, source=False, sink=False):
         self.name = name
         self.source = source
         self.sink = sink
 
-cdef class edge:
+class edge:
     """
     An edge in a netwokt, going from one vertex to another
     Attributes:
@@ -23,9 +22,7 @@ cdef class edge:
         flow (float): current flow in the edge
         returnEdge (pointer): return edge which is used in the residual graph
     """
-    
-    cdef double flow, capacity
-    
+
     def __init__(self, start, end, capacity):
         self.start = start
         self.end = end
@@ -33,7 +30,7 @@ cdef class edge:
         self.flow = 0
         self.returnEdge = None
 
-cdef class create_flow_network:
+class create_flow_network:
     """
     A flow network to which we want to find the maximum flow posible going
     from one vertex to another.
@@ -42,9 +39,6 @@ cdef class create_flow_network:
        network (dictionary): maps every vertex's name to all of the edges
                              coming out of the said vertex
     """
-    
-    cdef public list vertices
-    
     def __init__(self):
         self.vertices = []
         self.network = {}
@@ -112,7 +106,7 @@ cdef class create_flow_network:
 
         return allEdges
 
-    def create_vertex(self, name, bool_t source=False, bool_t sink=False):
+    def create_vertex(self, name, source=False, sink=False):
         """
         Creates and adds a vertex to the network after it checks various
         error cases to ensure that the vertex can be added.
@@ -141,7 +135,7 @@ cdef class create_flow_network:
         self.vertices.append(newVertex)
         self.network[newVertex.name] = []
 
-    def create_edge(self, start, end, double capacity):
+    def create_edge(self, start, end, capacity):
         """
         Creates and adds a new edge to the flow network with capacity of 0
         by first checking the start and end vertices of said edge to
@@ -211,8 +205,6 @@ cdef class create_flow_network:
                       network occurs.
             (float): maximum flow through the network
         """
-        cdef double s, flow
-        
         source = self.get_source()
         sink = self.get_sink()
 
@@ -226,6 +218,4 @@ cdef class create_flow_network:
                 edge.flow += flow
                 edge.returnEdge.flow -= flow
             path = self.get_path(source.name, sink.name, [])
-        for edge in self.network[source.name]:
-            s += edge.flow
-        return s
+        return sum(edge.flow for edge in self.network[source.name])
