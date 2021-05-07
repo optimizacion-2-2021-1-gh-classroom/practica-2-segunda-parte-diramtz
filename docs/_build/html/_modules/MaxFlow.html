@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MaxFlow &#8212; Flujo Máximo  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for MaxFlow</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="vertex"><a class="viewcode-back" href="../modules.html#MaxFlow.vertex">[docs]</a><span></span><span class="k">class</span> <span class="nc">vertex</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A vertex in a network.</span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (string): name or identifier of vertex</span>
+<span class="sd">        source (bool): whether the vertex is a source vertex or not</span>
+<span class="sd">        sink (bool): whether the vertex is a sink vertex or not</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sink</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sink</span> <span class="o">=</span> <span class="n">sink</span></div>
+
+
+<div class="viewcode-block" id="edge"><a class="viewcode-back" href="../modules.html#MaxFlow.edge">[docs]</a><span class="k">class</span> <span class="nc">edge</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An edge in a netwokt, going from one vertex to another</span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        start (vertex): the edge comes out of this vertex</span>
+<span class="sd">        end (vertex): the edge arrives at this vertex</span>
+<span class="sd">        capacity (float): edge&#39;s maximum flow capacity</span>
+<span class="sd">        flow (float): current flow in the edge</span>
+<span class="sd">        returnEdge (pointer): return edge which is used in the residual graph</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">returnEdge</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="create_flow_network"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network">[docs]</a><span class="k">class</span> <span class="nc">create_flow_network</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A flow network to which we want to find the maximum flow posible going</span>
+<span class="sd">    from one vertex to another.</span>
+<span class="sd">    Attributes:</span>
+<span class="sd">       vertices (list): lists all of vertices in the graph</span>
+<span class="sd">       network (dictionary): maps every vertex&#39;s name to all of the edges</span>
+<span class="sd">                             coming out of the said vertex</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="create_flow_network.get_source"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.get_source">[docs]</a>    <span class="k">def</span> <span class="nf">get_source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the source vertex in the list of vertices in the network.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">vertex</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">vertex</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="create_flow_network.get_sink"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.get_sink">[docs]</a>    <span class="k">def</span> <span class="nf">get_sink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the sink vertex in the list of vertices in the flow network.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">vertex</span><span class="o">.</span><span class="n">sink</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">vertex</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="create_flow_network.get_vertex"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.get_vertex">[docs]</a>    <span class="k">def</span> <span class="nf">get_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Takes a vertex name finds it in the lists of vertices of the</span>
+<span class="sd">        object of class create_flow_network.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            name (string): name or identifier of vertex</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            vertex (vertex): object of class vertex corresponding to the</span>
+<span class="sd">                             input vertex name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="n">vertex</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">vertex</span></div>
+
+<div class="viewcode-block" id="create_flow_network.vertex_in_network"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.vertex_in_network">[docs]</a>    <span class="k">def</span> <span class="nf">vertex_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Verifies if a certain vertex is in the list of vertices of the flow</span>
+<span class="sd">        network.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            name (string): name or identifier of vertex.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            (bool): if the vertex is in the network or not.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">vertex</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="create_flow_network.get_edges"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.get_edges">[docs]</a>    <span class="k">def</span> <span class="nf">get_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Takes information from the network vertices and gets a list of all</span>
+<span class="sd">        the edges going in and out of this vertices.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            allEdges (list): list of all vertices in the flow network.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">allEdges</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">[</span><span class="n">vertex</span><span class="p">]:</span>
+                <span class="n">allEdges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">allEdges</span></div>
+
+<div class="viewcode-block" id="create_flow_network.create_vertex"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.create_vertex">[docs]</a>    <span class="k">def</span> <span class="nf">create_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sink</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates and adds a vertex to the network after it checks various</span>
+<span class="sd">        error cases to ensure that the vertex can be added.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            name (string): name or identifier of vertex_in_network</span>
+<span class="sd">            source (bool): whether the vertex to add is source or not</span>
+<span class="sd">            sink (bool): whether the vertex to add is sink or not</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            (string): error message when error arises</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">sink</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;El nodo </span><span class="si">{}</span><span class="s2"> no puede ser origen y destino&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_in_network</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;Nodo duplicado&quot;</span>
+
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_source</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;Ya existe nodo origen&quot;</span>
+
+        <span class="k">if</span> <span class="n">sink</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sink</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;Ya existe nodo destino&quot;</span>
+
+        <span class="n">newVertex</span> <span class="o">=</span> <span class="n">vertex</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newVertex</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">[</span><span class="n">newVertex</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="create_flow_network.create_edge"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.create_edge">[docs]</a>    <span class="k">def</span> <span class="nf">create_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates and adds a new edge to the flow network with capacity of 0</span>
+<span class="sd">        by first checking the start and end vertices of said edge to</span>
+<span class="sd">        verify that the are not the same vertex and that they are both in</span>
+<span class="sd">        the network.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            start (vertex): start vertex of the new edge</span>
+<span class="sd">            end (vertex): end vertex of the new edge</span>
+<span class="sd">            capacity (float): capcity of the new edge</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            (string): error message when error arises</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_in_network</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Nodo origen ya ha sido agregado&quot;</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_in_network</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Nodo destino ya ha sido agregado&quot;</span>
+
+        <span class="k">elif</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;No se pueden tener bucles.&#39;&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;El cálculo de flujo máximo continuará sin tomar en cuenta este arco.&#39;&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">newEdge</span> <span class="o">=</span> <span class="n">edge</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">capacity</span><span class="p">)</span>
+            <span class="n">returnEdge</span> <span class="o">=</span> <span class="n">edge</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">newEdge</span><span class="o">.</span><span class="n">returnEdge</span> <span class="o">=</span> <span class="n">returnEdge</span>
+            <span class="n">returnEdge</span><span class="o">.</span><span class="n">returnEdge</span> <span class="o">=</span> <span class="n">newEdge</span>
+            <span class="n">vertex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_vertex</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">[</span><span class="n">vertex</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newEdge</span><span class="p">)</span>
+            <span class="n">returnVertex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_vertex</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">[</span><span class="n">returnVertex</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">returnEdge</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="create_flow_network.get_path"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.get_path">[docs]</a>    <span class="k">def</span> <span class="nf">get_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recursive function that walks through the network starting at a certain</span>
+<span class="sd">        vertex and calculates residual capacity for each edge it passes then</span>
+<span class="sd">        uses this residual capacity to define how much flow to send along a</span>
+<span class="sd">        given path. Then repeats this process until it reaches the end of the</span>
+<span class="sd">        flow network.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            start (vertex): start vertex of the new edge</span>
+<span class="sd">            end (vertex): end vertex of the new edge</span>
+<span class="sd">            path (list): list of vertices in a path</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            path (list): list of vertices in a path</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">path</span>
+
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span>
+            <span class="n">residualCapacity</span> <span class="o">=</span> <span class="n">edge</span><span class="o">.</span><span class="n">capacity</span> <span class="o">-</span> <span class="n">edge</span><span class="o">.</span><span class="n">flow</span>
+            <span class="k">if</span> <span class="n">residualCapacity</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">residualCapacity</span><span class="p">)</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span>
+                    <span class="n">edge</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[(</span><span class="n">edge</span><span class="p">,</span> <span class="n">residualCapacity</span><span class="p">)])</span>
+                <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="create_flow_network.MaxFlow"><a class="viewcode-back" href="../modules.html#MaxFlow.create_flow_network.MaxFlow">[docs]</a>    <span class="k">def</span> <span class="nf">MaxFlow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Follows the path returned by get_path and gets the maximum flow in the</span>
+<span class="sd">        network. This function implements the Ford Fulkerson method and</span>
+<span class="sd">        calculates the flow while the path is not fully walked. It sums this</span>
+<span class="sd">        flow to the fordward edges and substracts it from the reverse edges.</span>
+<span class="sd">        Then, another path is calculated and we repeat the process.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            (string): error message when an error in the definition of the</span>
+<span class="sd">                      network occurs.</span>
+<span class="sd">            (float): maximum flow through the network</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_source</span><span class="p">()</span>
+        <span class="n">sink</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sink</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sink</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;La red no tiene nodo origen y/o destino &quot;</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">sink</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">while</span> <span class="n">path</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">flow</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">path</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">edge</span><span class="p">,</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+                <span class="n">edge</span><span class="o">.</span><span class="n">flow</span> <span class="o">+=</span> <span class="n">flow</span>
+                <span class="n">edge</span><span class="o">.</span><span class="n">returnEdge</span><span class="o">.</span><span class="n">flow</span> <span class="o">-=</span> <span class="n">flow</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">sink</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">flow</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">[</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">])</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Flujo Máximo</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../maxflow.html">Flujo Máximo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Módulos y funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Imágenes de Docker</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Equipo 2.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
