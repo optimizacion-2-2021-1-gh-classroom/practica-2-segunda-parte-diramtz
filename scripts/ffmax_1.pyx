@@ -135,7 +135,7 @@ class create_flow_network:
         self.vertices.append(newVertex)
         self.network[newVertex.name] = []
 
-    def create_edge(self, start, end, capacity):
+    def create_edge(self, start, end, double capacity):
         """
         Creates and adds a new edge to the flow network with capacity of 0
         by first checking the start and end vertices of said edge to
@@ -205,6 +205,9 @@ class create_flow_network:
                       network occurs.
             (float): maximum flow through the network
         """
+        cdef double s=0.0
+        cdef double flow
+        
         source = self.get_source()
         sink = self.get_sink()
 
@@ -218,4 +221,6 @@ class create_flow_network:
                 edge.flow += flow
                 edge.returnEdge.flow -= flow
             path = self.get_path(source.name, sink.name, [])
-        return sum(edge.flow for edge in self.network[source.name])
+        for edge in self.network[source.name]:
+            s += edge.flow
+        return s
