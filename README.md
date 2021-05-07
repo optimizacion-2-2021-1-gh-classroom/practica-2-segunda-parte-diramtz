@@ -6,7 +6,7 @@
 | Integrante | User | Tarea |
 |---------------|-------|---------|
 | Ana | @AnaTorresR |Perfilamiento|
-| Iván | @IvanSalgadoVel |Perfilamiento|
+| Iván | @IvanSalgadoVel |Perfilamiento & Documentación Sphinx|
 | Dira | @diramtz |Re-implementación|
 | León| @lgarayva| Re-implementación & Project Manager|
 
