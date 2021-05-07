@@ -2,6 +2,6 @@
 .ipynb_checkpoints
 
 # cython archives
-.so
-build/
+*.so
+build/**
 scripts/ffmax_*
