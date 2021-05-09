@@ -30,7 +30,7 @@ RUN jupyter labextension install kubeflow-kale-labextension
 
 RUN pip install --quiet "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-2-segunda-parte-diramtz.git#egg=ffmaxc&subdirectory=src"
 COPY requirements.txt .
-#RUN pip3 install numpy
+##RUN pip3 install numpy
 RUN pip3 install --requirement requirements.txt
 COPY . .
 
