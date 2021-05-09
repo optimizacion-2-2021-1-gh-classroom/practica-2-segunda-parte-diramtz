@@ -1,4 +1,3 @@
-ffmaxflow
 numpy
 matplotlib
 networkx
