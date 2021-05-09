@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementación en C &#8212; Flujo Máximo  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Módulos y funciones" href="modules.html" />
+    <link rel="prev" title="Instalación" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ffmaxc">
+<span id="implementacion-en-c"></span><h1>Implementación en C<a class="headerlink" href="#module-ffmaxc" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="ffmaxc.create_flow_network">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ffmaxc.</span></code><code class="sig-name descname"><span class="pre">create_flow_network</span></code><a class="headerlink" href="#ffmaxc.create_flow_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>A flow network to which we want to find the maximum flow posible going
+from one vertex to another.
+Attributes:</p>
+<blockquote>
+<div><p>vertices (list): lists all of vertices in the graph
+network (dictionary): maps every vertex’s name to all of the edges</p>
+<blockquote>
+<div><p>coming out of the said vertex</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.MaxFlow">
+<code class="sig-name descname"><span class="pre">MaxFlow</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.MaxFlow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Follows the path returned by get_path and gets the maximum flow in the
+network. This function implements the Ford Fulkerson method and
+calculates the flow while the path is not fully walked. It sums this
+flow to the fordward edges and substracts it from the reverse edges.
+Then, another path is calculated and we repeat the process.
+Returns:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>(string): error message when an error in the definition of the</dt><dd><p>network occurs.</p>
+</dd>
+</dl>
+<p>(float): maximum flow through the network</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.create_edge">
+<code class="sig-name descname"><span class="pre">create_edge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.create_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and adds a new edge to the flow network with capacity of 0
+by first checking the start and end vertices of said edge to
+verify that the are not the same vertex and that they are both in
+the network.
+Args:</p>
+<blockquote>
+<div><p>start (vertex): start vertex of the new edge
+end (vertex): end vertex of the new edge
+capacity (float): capcity of the new edge</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(string): error message when error arises</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.create_vertex">
+<code class="sig-name descname"><span class="pre">create_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.create_vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and adds a vertex to the network after it checks various
+error cases to ensure that the vertex can be added.
+Args:</p>
+<blockquote>
+<div><p>name (string): name or identifier of vertex_in_network
+source (bool): whether the vertex to add is source or not
+sink (bool): whether the vertex to add is sink or not</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(string): error message when error arises</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.get_edges">
+<code class="sig-name descname"><span class="pre">get_edges</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.get_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes information from the network vertices and gets a list of all
+the edges going in and out of this vertices.
+Returns:</p>
+<blockquote>
+<div><p>allEdges (list): list of all vertices in the flow network.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.get_path">
+<code class="sig-name descname"><span class="pre">get_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.get_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive function that walks through the network starting at a certain
+vertex and calculates residual capacity for each edge it passes then
+uses this residual capacity to define how much flow to send along a
+given path. Then repeats this process until it reaches the end of the
+flow network.
+Args:</p>
+<blockquote>
+<div><p>start (vertex): start vertex of the new edge
+end (vertex): end vertex of the new edge
+path (list): list of vertices in a path</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>path (list): list of vertices in a path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.get_sink">
+<code class="sig-name descname"><span class="pre">get_sink</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.get_sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the sink vertex in the list of vertices in the flow network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.get_source">
+<code class="sig-name descname"><span class="pre">get_source</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.get_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the source vertex in the list of vertices in the network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.get_vertex">
+<code class="sig-name descname"><span class="pre">get_vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.get_vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a vertex name finds it in the lists of vertices of the
+object of class create_flow_network.
+Args:</p>
+<blockquote>
+<div><p>name (string): name or identifier of vertex</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>vertex (vertex): object of class vertex corresponding to the</dt><dd><p>input vertex name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ffmaxc.create_flow_network.vertex_in_network">
+<code class="sig-name descname"><span class="pre">vertex_in_network</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.create_flow_network.vertex_in_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifies if a certain vertex is in the list of vertices of the flow
+network.
+Args:</p>
+<blockquote>
+<div><p>name (string): name or identifier of vertex.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool): if the vertex is in the network or not.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ffmaxc.edge">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ffmaxc.</span></code><code class="sig-name descname"><span class="pre">edge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>An edge in a netwokt, going from one vertex to another
+Attributes:</p>
+<blockquote>
+<div><p>start (vertex): the edge comes out of this vertex
+end (vertex): the edge arrives at this vertex
+capacity (float): edge’s maximum flow capacity
+flow (float): current flow in the edge
+returnEdge (pointer): return edge which is used in the residual graph</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt id="ffmaxc.vertex">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ffmaxc.</span></code><code class="sig-name descname"><span class="pre">vertex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ffmaxc.vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>A vertex in a network.
+Attributes:</p>
+<blockquote>
+<div><p>name (string): name or identifier of vertex
+source (bool): whether the vertex is a source vertex or not
+sink (bool): whether the vertex is a sink vertex or not</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Flujo Máximo</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="maxflow.html">Flujo Máximo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementación en C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Módulos y funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Imágenes de Docker</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Instalación</a></li>
+      <li>Next: <a href="modules.html" title="next chapter">Módulos y funciones</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Equipo 2.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/modulesc.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
