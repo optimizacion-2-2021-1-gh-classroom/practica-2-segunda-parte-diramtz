@@ -21,7 +21,6 @@ Recrea nuestros códigos y notebooks dando click en este botón de Binder [![Bin
 
 Nueva [documentación](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-2-segunda-parte-diramtz/)
 
-Checa nuestra optimización [aquí](practica-2-segunda-parte-diramtz/scripts/ffmax_1.html)
 
 **Referencias**
 
