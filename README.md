@@ -21,6 +21,8 @@ El perfilamiento y reimplementación de nuestro paquete lo econtrarás dando cli
 
 Nueva [documentación](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-2-segunda-parte-diramtz/)
 
+Las anotaciones en html de la reimplementación: [anotaciones](https://htmlpreview.github.io/?https://github.com/optimizacion-2-2021-1-gh-classroom/practica-2-segunda-parte-diramtz/blob/main/scripts/ffmaxc.html)
+
 
 **Referencias**
 
