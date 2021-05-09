@@ -29,3 +29,7 @@ Nueva [documentación](https://optimizacion-2-2021-1-gh-classroom.github.io/prac
 [Práctica 1 segunda parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-diramtz)
 
 [Práctica 2 primera parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-2-primera-parte-diramtz)
+
+[Cython Documentation](https://cython.readthedocs.io/en/latest/src/userguide/language_basics.html)
+
+[Pyhton Programming](https://pythonprogramming.net/introduction-and-basics-cython-tutorial/)
