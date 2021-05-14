@@ -24,8 +24,6 @@ Nueva [documentación](https://optimizacion-2-2021-1-gh-classroom.github.io/prac
 Las anotaciones en html de la reimplementación: [anotaciones](https://htmlpreview.github.io/?https://github.com/optimizacion-2-2021-1-gh-classroom/practica-2-segunda-parte-diramtz/blob/main/scripts/ffmaxc.html)
 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/diramtz/ProyectoFinal_MaxFlow/HEAD/?urlpath=lab)
-
 **Referencias**
 
 [Práctica 1 primera parte](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-primera-parte-diramtz)
